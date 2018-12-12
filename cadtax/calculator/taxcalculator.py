@@ -12,13 +12,16 @@ class objectprice():
         try:
             self.name = name
             self.price = price
-            if self.price<0:
-                raise NegativePrice()
+            if isinstance(self.price,int)==True or isinstance(self.price,float)==True:
+                if self.price<0:
+                    raise NegativePrice()
+            else:
+                raise ValueError
             self.prov = prov
             if len(self.prov)>2:
                 raise WrongAbbreviation()
         except ValueError:
-            print("Please enter the appropriate value for a name or number.")
+            print("Please enter a number for price.")
         except WrongAbbreviation:
             print("Please enter the standard two letter abbreviation.")
         except NegativePrice:
