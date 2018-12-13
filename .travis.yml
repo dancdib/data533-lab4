@@ -2,5 +2,8 @@ language: python
 python:
 - "3.4"
 - "3.5"
+install:
+- import pandas as pd
+- from pandas import DataFrame
 script:
 - python TestSuite.py
